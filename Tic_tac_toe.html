@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Tic tac toe</h1>
+<p id="dome" ></p>
+
+<script>
+    let c = document.getElementById("dome");
+    let boat = [];
+    let data ='';
+    for(i =0; i <3; i++){
+        boat[i] = new Array(".", ".", ".",);
+    }
+    for(i = 0; i <3; i++){
+        data += "<br>";
+        for(j = 0; j < 3; j++){
+            data += boat[i][j] + "&nbsp;&nbsp;"
+        }
+    }
+    data += "<br><br><input type='button' onclick='dien_x()' value='X'/><input type='button' onclick='dien_O()' value='O'/>"
+    c.innerHTML = data;
+    function dien_x() {
+        let pX = prompt("Dien X");
+        let pY = prompt("Dien Y");
+        data = "";
+        boat[pX][pY] = "x";
+
+        for (i = 0; i < 3; i++) {
+            data += "<br>";
+            for (j = 0; j < 3; j++) {
+                data += boat[i][j] + "&nbsp;&nbsp;"
+            }
+        }
+        data += "<br><br><input type='button' onclick='dien_x()' value='X'/><input type='button' onclick='dien_O()' value='O'/>"
+        c.innerHTML = "<hr>" + data;
+        for (i = 0; i < 3; i++) {
+            for (j = 0; j < 3; j++) {
+                if (boat[i][j] !== ".") {
+                    if (boat[i][j] == boat[i + 1][j + 1] && boat[i][j] == boat[i + 2][j + 2]) {
+                        alert("congrats");
+                    } else if (boat[i][j] == boat[i + 1][j] && boat[i][j] == boat[i + 2][j]) {
+                        alert("congrats");
+                    } else if (boat[i][j] == boat[i][j + 1] && boat[i][j] == boat[i][j + 2]) {
+                        alert("congrats");
+                    }
+                }
+            }
+        }
+    }
+    function dien_O(){
+        let pX = prompt("Dien X");
+        let pY = prompt("Dien Y");
+        data = "";
+        boat[pX][pY] = "O";
+
+        for(i = 0; i <3; i++){
+            data += "<br>";
+            for(j = 0; j < 3; j++){
+                data += boat[i][j] + "&nbsp;&nbsp;"
+            }
+        }
+        data += "<br><br><input type='button' onclick='dien_x()' value='X'/><input type='button' onclick='dien_O()' value='O'/>"
+        c.innerHTML = "<hr>" + data;
+        for (i = 0; i < 3; i++) {
+            for (j = 0; j < 3; j++) {
+                if (boat[i][j] !== ".") {
+                    if (boat[i][j] == boat[i + 1][j + 1] && boat[i][j] == boat[i + 2][j + 2]) {
+                        alert("congrats");
+                    } else if (boat[i][j] == boat[i + 1][j] && boat[i][j] == boat[i + 2][j]) {
+                        alert("congrats");
+                    } else if (boat[i][j] == boat[i][j + 1] && boat[i][j] == boat[i][j + 2]) {
+                        alert("congrats");
+                    }
+                }
+            }
+        }
+    }
+
+
+
+</script>
+</body>
+</html>
